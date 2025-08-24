@@ -1,0 +1,129 @@
+<!-- page3.html -->
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Ready - Page 3</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: sans-serif;
+      background: #d90429; /* লাল ব্যাকগ্রাউন্ড */
+      color: #fff;
+    }
+    .card {
+      text-align: center;
+      padding: 40px 28px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+      max-width: 600px;
+      width: 90%;
+    }
+    .tick {
+      font-size: 90px;
+      color: #00ff00; /* সবুজ টিক চিহ্ন */
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+      background: #ffcc00; /* হলুদ বোতাম */
+      color: #000;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+      margin: 8px;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    /* Contact form style */
+    form {
+      margin-top: 30px;
+      text-align: left;
+    }
+    label { display: block; margin-bottom: 6px; font-weight: bold; }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    .form-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: 999px;
+      font-weight: bold;
+      background: #ffcc00;
+      color: #000;
+      border: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,.25);
+      cursor: pointer;
+    }
+    .form-btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="tick">✔️</div>
+    <h2>আপনি লোন নেয়ার জন্য প্রস্তুত</h2>
+    
+    <!-- প্রধান বোতাম -->
+    <a class="btn" href="page4.html">লোনের পরিমাণ</a>
+    
+    <!-- অতিরিক্ত বোতাম -->
+    <a class="btn" href="index.html">🏠 হোমে ফিরে যান</a>
+    <a class="btn" href="sms:+8801XXXXXXXXX?body=আমি লোনের ব্যাপারে জানতে চাই">📩 এসএমএস পাঠান</a>
+
+    <!-- ✅ Contact Form (Formspree) -->
+    <form id="contactForm" action="https://formspree.io/f/আপনার-Form-ID" method="POST">
+      <h2>✉️ যোগাযোগ ফর্ম</h2>
+
+      <label for="name">নাম</label>
+      <input type="text" id="name" name="name" placeholder="আপনার নাম লিখুন" required>
+
+      <label for="email">ইমেইল</label>
+      <input type="email" id="email" name="email" placeholder="আপনার ইমেইল লিখুন" required>
+
+      <label for="message">বার্তা</label>
+      <textarea id="message" name="message" rows="4" placeholder="আপনার বার্তা লিখুন" required></textarea>
+
+      <button type="submit" class="form-btn">✉️ ইমেইল পাঠান</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // ফর্ম সাবমিট হওয়া বন্ধ করলাম
+
+      fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          // ✅ সফল হলে page4.html এ যাবে
+          window.location.href = "page4.html";
+        } else {
+          alert("সাবমিটে সমস্যা হয়েছে, আবার চেষ্টা করুন!");
+        }
+      }).catch(error => {
+        alert("কনেকশন সমস্যা হয়েছে!");
+      });
+    });
+  </script>
+</body>
+</html>

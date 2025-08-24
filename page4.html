@@ -1,0 +1,76 @@
+<!-- page4.html -->
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Packages - Page 4</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#d90429;
+      font-family:sans-serif;
+      color:#fff;
+    }
+    .container{
+      width:95%;
+      max-width:600px;
+      text-align:center;
+    }
+    h1{margin-bottom:24px}
+    .package{
+      background:#fff;
+      color:#000;
+      margin:16px 0;
+      padding:20px;
+      border-radius:18px;
+      box-shadow:0 6px 20px rgba(0,0,0,.3);
+      cursor:pointer;
+      transition:transform .2s;
+    }
+    .package:hover{
+      transform:scale(1.05);
+    }
+    .package h2{
+      margin:0;
+      font-size:22px;
+      color:#d90429;
+    }
+    .package p{margin:8px 0 0}
+    a{
+      text-decoration:none;
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>লোনের প্যাকেজ বেছে নিন</h1>
+
+    <a href="loan2000.html">
+      <div class="package">
+        <h2>২০০০ টাকা লোন</h2>
+        <p>৬ মাস শেষে মোট: ২২০০ টাকা</p>
+      </div>
+    </a>
+
+    <a href="loan5000.html">
+      <div class="package">
+        <h2>৫০০০ টাকা লোন</h2>
+        <p>৬ মাস শেষে মোট: ৫৫০০ টাকা</p>
+      </div>
+    </a>
+
+    <a href="loan10000.html">
+      <div class="package">
+        <h2>১০,০০০ টাকা লোন</h2>
+        <p>৬ মাস শেষে মোট: ১১,০০০ টাকা</p>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
