@@ -1,189 +1,64 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Online Loan Service</title>
-
-  <meta property="og:title" content="Online Loan Service" />
-  <meta property="og:description" content="স্বাগতম অনলাইন লোন সার্ভিসে - ৬ মাস মেয়াদী লোন আবেদন করুন সহজেই।" />
-  <meta property="og:image" content="https://ttfy241-svg.github.io/-11/loan.jpeg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ttfy241-svg.github.io/-11/" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Page</title>
   <style>
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      font-family:sans-serif;
-      background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #24c6dc, #514a9d);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color:#fff;
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes gradientBG {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('bikas.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
     }
 
-    .card{
-      text-align:center;
-      padding:40px 28px;
-      background:rgba(255,255,255,0.06);
-      border-radius:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-      max-width:600px;
-      width:90%;
-      position:relative;
-    }
-
-    /* 🔴 imR লেখা */
-    .logo-text{
-      position:absolute;
-      top:10px;
-      left:50%;
-      transform:translateX(-50%);
-      font-size:28px;
-      font-weight:bold;
-      color:red;
-    }
-
-    /* ⏰ রিয়েল টাইম ঘড়ি */
-    #clock {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 16px;
+    .loan-btn {
+      background-color: #ff1493;
+      color: white;
+      font-size: 22px;
       font-weight: bold;
-      line-height: 1.4;
-      color:#fff;
-      text-align: right;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      animation: popup 1.5s infinite alternate;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    h1{margin:40px 0 16px;font-size:28px}
-    p{margin:0 0 24px;font-size:18px;line-height:1.6}
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:14px 22px;
-      border-radius:999px;
-      font-weight:bold;
-      background:#ffcc00; /* হলুদ বাটন */
-      color:#000;          /* কালো লেখা */
-      box-shadow:0 6px 16px rgba(0,0,0,.25);
-    }
-    .btn:hover{opacity:0.9}
-
-    /* Footer (ব্যাংকের নাম) */
-    footer{
-      margin-top:30px;
-      text-align:center;
-      font-size:14px;  
-      font-weight:600;
-      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-      letter-spacing: 1px;
-      color:#f1f1f1;
-      opacity:0.9;
-    }
-    footer span {
-      display:block;
-      margin:4px 0;
+    @keyframes popup {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
     }
 
-    /* 🔻 নিচে গোলাপি টিকার লেখা */
-    .ticker{
-      position:fixed;
-      bottom:0; left:0; right:0;
-      overflow:hidden;
-      padding:12px 0;
-      background:#fff;
-      z-index:1000;
+    .ad-text {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff0066;
+      text-align: center;
+      animation: fadeInOut 2s infinite alternate;
     }
 
-    .ticker__track{
-      display:inline-block;
-      white-space:nowrap;
-      will-change:transform;
-      animation: slide 40s linear infinite;
-    }
-
-    .chunk{
-      display:inline-block;
-      font-size:20px;
-      font-weight:900;
-      color:#ff007f;
-      text-shadow:0 0 8px #ff4fa3, 0 0 16px #ff007f, 0 0 28px #ff4fa3;
-      animation: glow 2s ease-in-out infinite alternate;
-      padding-right:60px;
-    }
-
-    @keyframes slide{
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    @keyframes glow{
-      from{ text-shadow:0 0 6px #ff4fa3, 0 0 12px #ff007f; }
-      to  { text-shadow:0 0 16px #ff4fa3, 0 0 32px #ff007f; }
+    @keyframes fadeInOut {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <!-- ⏰ Clock -->
-  <div id="clock">Loading...</div>
+  <!-- Loan button with link -->
+  <a href="page2.html" class="loan-btn">লোন</a>
 
-  <main class="card">
-    <!-- 🔴 লাল imR লেখা -->
-    <div class="logo-text">imR</div>
-
-    <h1>স্বাগতম অনলাইন লোন সার্ভিসে</h1>
-    <p>আপনি কি 6 মাস মেয়াদী লোন নিতে চান?<br> তাহলে নিচে আবেদন করুন।</p>
-    <a class="btn" href="page2.html">আবেদন করুন</a>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <span>ডাচ বাংলা ব্যাংক</span>
-    <span>গ্রামীণ ব্যাংক</span>
-    <span>সিটি ব্যাংক</span>
-    <span>সৌজন্যে বিকাশ</span>
-  </footer>
-
-  <!-- 🔻 নিচে মুভিং টেক্সট -->
-  <div class="ticker">
-    <div class="ticker__track">
-      <span class="chunk">বিকাশ থাকতে চিন্তা কিসের — (যেকোনো ব্যাংক থেকে লোন নিন মাত্র 5 মিনিটে)</span>
-      <span class="chunk" aria-hidden="true">বিকাশ থাকতে চিন্তা কিসের — (যেকোনো ব্যাংক থেকে লোন নিন মাত্র 5 মিনিটে)</span>
-    </div>
+  <div class="ad-text">
+    বিকাশ থেকে লোন <br> ৫ মিনিটে পেয়ে যাবেন
   </div>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const date = now.toLocaleDateString('bn-BD', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-      const time = now.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      });
-      document.getElementById('clock').innerHTML = date + "<br>" + time;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
 </body>
 </html>
